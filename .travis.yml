@@ -1,8 +1,15 @@
 language: rust
 rust:
-  - nightly
+- nightly
 jobs:
   allow_failures:
-    - rust: nightly
+  - rust: nightly
   fast_finish: true
 cache: cargo
+deploy:
+  provider: heroku
+  api_key:
+    secure: fUVUiblnxy1b61nMi9aD7K5869nbs9fIoSq+/iAF7AH1wE2wb7kUul6uJI0rUAONFVtCQ5HoCj3KTcgLB6r0qiD5g2S9y//l0pfE/lnWf3RvUjSuckbNt25e1r5AVEFhu9Fw3A4hEZX4w1Kvp4K9jfzaldQQpjQMJXZQmzMldOsP5WLdqF6ydghivB2fGAXErnRBcMfGAq6SKulWYZ2tPbGPv95KZE709TdCg6X3ti3/2N5d2cCH1yzrCgU5vCUcZ3wp8z+ijcNfuHdDbYpmPowOyRrIBQfGAIFHAicC66jBldZcjTrXsOggZeN2eeXKSqd/GlQ/Mcvk7hNuRKnUPDICPdXKgKOf+bNaQReAqAZujhqxVo+fJicavj5YCxGNLCXmSIUK5OSjvXweqJNdcAkm38fjv794EahTsNRoTj59GnHjj15ex+DuDZRw0xu+cn96sTQysZmGMxxQg28Uyf8Ir7RL60KVfsoHPdIk1ZGWhdW/aV3G+Gk8qbvsidNJgMjbj+xr4f0zlRAt77LW6119it87VI2utDtzplhtVwI/IQkGiD9KfWnCh7DJt21NTX1i+7XipsnOlvmTutRV3WEHwkoYyjyUwnYJgS+7DSr3ODGni9X9kZb70MHICYtntCbah+qlC52+m98vZaljcOmYdrBL0AR1ht/DXsbiAMw=
+  app: hello-rocket-app
+  run:
+  - cargo run
